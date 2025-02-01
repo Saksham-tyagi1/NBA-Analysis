@@ -8,6 +8,12 @@ This project analyzes **NBA players and teams** based on their **shot distributi
 - **NBA Shot Data**: Contains shot attempts, locations, shot distances, shot success rates, and game context.
 - **Merged Game Event Data**: Includes additional in-game statistics such as player movement, passing, and shot clock conditions.
 - **Optimized Data Formats**: The dataset is stored in Parquet format for efficient processing and memory optimization.
+- **Player Information**: Player names, positions, and shooting tendencies.
+- **Team Standings (2023-24 Season)**: Used to compare team success rates with shot distribution patterns.
+- **Encoded Shot Data**: Feature-engineered dataset with categorical encoding, shot clock status, clutch moments, and advanced shot metrics.
+- **NBA Shot Data**: Contains shot attempts, locations, shot distances, shot success rates, and game context.
+- **Merged Game Event Data**: Includes additional in-game statistics such as player movement, passing, and shot clock conditions.
+- **Optimized Data Formats**: The dataset is stored in Parquet format for efficient processing and memory optimization.
 - **Encoded Shot Data**: Feature-engineered dataset with categorical encoding, shot clock status, clutch moments, and advanced shot metrics.
 - **NBA Shot Data**: Contains shot attempts, locations, shot distances, shot success rates, and game context.
 - **NBA Shot Data**: Contains shot attempts, locations, shot distances, shot success rates, and game context.
@@ -53,6 +59,13 @@ pip install pandas numpy matplotlib seaborn scikit-learn
 2. **Perform clustering algorithms** to identify player and team shot patterns.
 3. **Analyze feature correlations** to validate shot efficiency impacts.
 4. **Generate visual insights** with efficiency and shot distribution charts.
+1. **Load and preprocess the dataset**:
+   - Merge multiple season chunk files into a single DataFrame.
+   - Optimize data types to reduce memory usage.
+   - Handle missing values with appropriate imputation strategies.
+2. **Perform clustering algorithms** to identify player and team shot patterns.
+3. **Analyze feature correlations** to validate shot efficiency impacts.
+4. **Generate visual insights** with efficiency and shot distribution charts.
 1. **Load the dataset** and apply feature engineering transformations.
 2. **Perform clustering algorithms** to identify player and team shot patterns.
 3. **Analyze feature correlations** to validate shot efficiency impacts.
@@ -66,9 +79,43 @@ pip install pandas numpy matplotlib seaborn scikit-learn
 - Integrating **defensive metrics** to see how defense impacts shooting efficiency.
 - Analyzing **player movement and shot creation** to refine shot clustering.
 - Expanding to **playoff performance** for a deeper postseason analysis.
+- Integrating **defensive metrics** to see how defense impacts shooting efficiency.
+- Analyzing **player movement and shot creation** to refine shot clustering.
+- Expanding to **playoff performance** for a deeper postseason analysis.
 - **Team-Specific Recommendations**: Tailoring strategies for teams based on player composition and efficiency metrics.
 
 ## 🏀 Team-Specific Recommendations
+### **Championship Contenders (Team Cluster 0)**
+✅ **Strengths:**
+- Balanced mix of **Efficient Scorers & Specialist Shooters**.
+- Strong shot selection & high FG%.
+
+📌 **Recommendations:**
+- Maintain **roster stability** and focus on **shot creation improvements**.
+- Optimize **defensive shot contesting** to limit opponent efficiency.
+- If over-reliant on **Volume Shooters**, reduce mid-range shots.
+
+### **Playoff Hopefuls (Team Cluster 1)**
+❌ **Weaknesses:**
+- **Mid-level shooting efficiency** (needs improvement).
+- Imbalanced roster (too many **Volume Shooters, not enough Efficient Scorers**).
+
+📌 **Recommendations:**
+- **Recruit more Efficient Scorers (Cluster 0)** to improve **shot selection**.
+- Encourage **Specialist Shooters (Cluster 2) to take more open 3PTs**.
+- Reduce reliance on **low-efficiency mid-range shots**.
+- Optimize **shot clock usage** to avoid rushed late-game shots.
+
+### **Struggling Teams (Team Cluster 2)**
+❌ **Weaknesses:**
+- **Over-reliance on Volume Shooters (Cluster 1)** → Poor shot selection.
+- **Lowest shooting efficiency** in the league.
+
+📌 **Recommendations:**
+- **Sign or develop Efficient Scorers (Cluster 0)** to improve **shot efficiency**.
+- **Encourage more 3PT shooting** from Specialist Shooters (Cluster 2).
+- **Focus on playmaking & ball movement** to generate **better shot opportunities**.
+- **Limit mid-range shots from Volume Shooters**.
 ### **Championship Contenders (Team Cluster 0)**
 ✅ Strengths:
 - Balanced mix of **Efficient Scorers & Specialist Shooters**.
@@ -105,4 +152,5 @@ pip install pandas numpy matplotlib seaborn scikit-learn
 - Expanding to **playoff performance** for a deeper postseason analysis.
 
 🚀 **This project provides data-driven insights into NBA shot efficiency and team success—helping teams optimize player roles and strategies!**
+
 
